@@ -485,7 +485,7 @@ export default function Home() {
                               <input
                                 id={`companion${c.id}Allergy`}
                                 type="text"
-                                value={c.diets.alergiaDescripcion || ""}
+                                value={c.diets.alergiaDescripcion ?? ""}
                                 onChange={(e) => updateCompanionAllergyDesc(c.id, e.target.value)}
                                 className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-rose-500 focus:border-rose-500"
                                 placeholder="Ej: mariscos, frutos secos, etc."
@@ -558,7 +558,7 @@ export default function Home() {
                     <input
                       id="mainGuestAllergy"
                       type="text"
-                      value={mainGuestDiets.alergiaDescripcion || ""}
+                      value={mainGuestDiets.alergiaDescripcion ?? ""}
                       onChange={(e) => updateMainAllergyDesc(e.target.value)}
                       className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-rose-500 focus:border-rose-500"
                       placeholder="Ej: mariscos, frutos secos, etc."
