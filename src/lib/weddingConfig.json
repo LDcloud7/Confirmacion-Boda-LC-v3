@@ -1,4 +1,6 @@
-export const weddingConfig = {
-  novios: "Lucas y Caro", 
-  fecha: "7 de Diciembre, 2025",
+{
+  novios: "Lucas y Carolina", 
+  fecha: "7 de Diciembre, 2025", 
+  lugar: "Nombre del lugar",
+  hora: "17:00",
 }
