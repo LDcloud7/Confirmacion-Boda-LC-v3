@@ -1,6 +1,4 @@
 export const weddingConfig = {
   novios: "Lucas y Caro", 
   fecha: "7 de Diciembre, 2025",
-  lugar: "Cascada Azul, Santa Lucia Canelones",
-  hora: "16:30",
 }
