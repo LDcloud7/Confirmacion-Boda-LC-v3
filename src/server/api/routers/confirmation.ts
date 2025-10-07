@@ -6,6 +6,7 @@ import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, publicProcedure } from "@boda-lc/server/api/trpc";
 import { env } from "@boda-lc/env";
 import notion from "@boda-lc/lib/notion";
+import { sendWeddingInfoEmail } from "@boda-lc/lib/resend";
 
 export const confirmationRouter = createTRPCRouter({
   confirmar: publicProcedure
@@ -116,7 +117,16 @@ export const confirmationRouter = createTRPCRouter({
           properties: properties,
         });
 
-        return page;
+        let emailStatus: { ok: boolean; error?: string } = { ok: false };
+        try {
+          await sendWeddingInfoEmail({ to: email, guestName: nombre });
+          emailStatus.ok = true;
+        } catch (e: any) {
+          const msg = e?.message ?? String(e);
+          console.error("Fallo al enviar email informativo (no bloquea)", msg);
+          emailStatus = { ok: false, error: msg };
+        }
+        return { page, email: emailStatus } as const;
       } catch (err: any) {
         throw new TRPCError({
           code: "BAD_REQUEST",

@@ -31,6 +31,7 @@ export default function ConfirmacionPage() {
     mensaje: "",
   };
   const [successDetails, setSuccessDetails] = useState<string>("");
+  const [emailWarning, setEmailWarning] = useState<string>("");
   const [showEventInfo, setShowEventInfo] = useState<boolean>(false);
 
   const {
@@ -61,7 +62,7 @@ export default function ConfirmacionPage() {
     setSuccessDetails("");
 
     try {
-      await confirmarMutation({
+      const result: any = await confirmarMutation({
         nombre: data.nombre,
         email: data.email,
         asistira: data.asistira,
@@ -85,6 +86,14 @@ export default function ConfirmacionPage() {
         details += `Lamentamos mucho tu ausencia y te agradecemos por avisarnos.`;
       }
       setSuccessDetails(details);
+      const emailOk = result?.email?.ok ?? true;
+      if (!emailOk) {
+        setEmailWarning(
+          "Tu confirmación fue registrada, pero no pudimos enviar el email informativo."
+        );
+      } else {
+        setEmailWarning("");
+      }
       reset(defaultFormValues);
     } catch (error) {
       console.error("Error al enviar la confirmación:", error);
@@ -117,6 +126,11 @@ export default function ConfirmacionPage() {
           </div>
           <WeddingCountdown />
         </div>
+        {emailWarning && (
+          <div className="mt-4 rounded-md border border-yellow-200 bg-yellow-50 p-3 text-yellow-800">
+            {emailWarning}
+          </div>
+        )}
         {!showEventInfo ? (
           <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
             <div className="grid gap-2">
@@ -335,12 +349,18 @@ export default function ConfirmacionPage() {
               </div>
             )}
 
-            {successDetails && (
-              <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 whitespace-pre-line text-green-800">
-                <strong>¡Gracias por confirmar!</strong>
-                <div className="mt-2">{successDetails}</div>
-              </div>
-            )}
+          {successDetails && (
+            <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 whitespace-pre-line text-green-800">
+              <strong>¡Gracias por confirmar!</strong>
+              <div className="mt-2">{successDetails}</div>
+            </div>
+          )}
+
+          {emailWarning && (
+            <div className="mt-3 rounded-md border border-yellow-200 bg-yellow-50 p-3 text-yellow-800">
+              {emailWarning}
+            </div>
+          )}
 
             {mutationError && (
               <div className="mt-4 rounded-md border border-red-200 bg-red-50 p-4 text-red-800">

@@ -12,6 +12,8 @@ export const env = createEnv({
     NOTION_DATABASE_ID: z.string().min(1),
     NOTION_DATASOURCE_ID: z.string().min(1),
     NOTION_URL_API: z.string().url().optional(),
+    RESEND_API_KEY: z.string().min(1, "RESEND_API_KEY es obligatorio"),
+    RESEND_FROM: z.string().optional(),
     // Nombre de la propiedad (columna) de tipo email en la base de datos de Notion.
     // Si tu columna no se llama exactamente "Email", define NOTION_EMAIL_PROPERTY_NAME.
   },
@@ -35,6 +37,8 @@ export const env = createEnv({
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
     NOTION_DATASOURCE_ID: process.env.NOTION_DATASOURCE_ID,
     NOTION_URL_API: process.env.NOTION_URL_API,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_FROM: process.env.RESEND_FROM,
     // SERVERVAR: process.env.SERVERVAR,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },

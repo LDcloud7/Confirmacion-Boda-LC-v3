@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Resend } from "resend";
+import { buildWeddingInfoEmailHTML } from "./emails/weddingInfoEmail";
+import { env } from "../env";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(env.RESEND_API_KEY);
+const FROM_ADDRESS = env.RESEND_FROM ?? "Lucas & Caro <onboarding@resend.dev>";
 
 export async function resendEmailConfirmation({
   to,
@@ -13,7 +18,7 @@ export async function resendEmailConfirmation({
 }) {
   try {
     const email = await resend.emails.send({
-      from: "Lucas & Caro <noreply@lucasycaro.com>",
+      from: FROM_ADDRESS,
       to,
       subject,
       html,
@@ -23,4 +28,19 @@ export async function resendEmailConfirmation({
     console.error("Error sending email:", error);
     throw new Error("Failed to send email");
   }
+}
+
+export async function sendWeddingInfoEmail({
+  to,
+  guestName,
+}: {
+  to: string;
+  guestName?: string;
+}) {
+  const html = buildWeddingInfoEmailHTML({ guestName });
+  return resendEmailConfirmation({
+    to,
+    subject: "Información de la boda - Lucas & Caro",
+    html,
+  });
 }
