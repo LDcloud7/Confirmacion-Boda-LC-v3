@@ -9,7 +9,7 @@ import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: "Caro y Lucas",
-  description: "Nuestra boda - 7 de mayo de 2025",
+  description: "Diciembre 2025",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
