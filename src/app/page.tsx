@@ -22,22 +22,38 @@ export default function Home() {
       <section className="flex min-h-[calc(100vh-var(--header-h))] w-full snap-center snap-always flex-col items-center justify-center px-4 pt-28 text-center">
         <div className="mx-auto flex max-w-screen-lg flex-col items-center">
           <div className="flex flex-row flex-wrap justify-center gap-2 text-center text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="font-sunday text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]">
+            <span className="font-sunday text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]">
               CIVIL
             </span>
-            <span className="font-brown-sugar text-[6rem]">|</span>
-            <span className="font-brown-sugar text-[6rem]">5/7</span>
-            <span className="font-brown-sugar text-[6rem]">|</span>
-            <span className="font-brown-sugar text-[6rem]">13:00</span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              |
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              5/12
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              |
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              13:00
+            </span>
           </div>
-          <div className="mt-8 flex flex-row flex-wrap justify-center gap-2 text-4xl leading-tight sm:mt-14 sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="font-sunday text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]">
+          <div className="lg:text-12xl mt-8 flex flex-row flex-wrap justify-center gap-2 text-4xl leading-tight sm:mt-14 sm:text-5xl md:text-6xl">
+            <span className="font-sunday text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem]">
               CEREMONIA
             </span>
-            <span className="font-brown-sugar text-[6rem]">|</span>
-            <span className="font-brown-sugar text-[6rem]">5/7</span>
-            <span className="font-brown-sugar text-[6rem]">|</span>
-            <span className="font-brown-sugar text-[6rem]">13:00</span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              |
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              7/12
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              |
+            </span>
+            <span className="font-brown-sugar text-[2.5rem] sm:text-[3rem] md:text-[4rem] xl:text-[6rem]">
+              16:30
+            </span>
           </div>
           <p className="font-corsiva mt-6 text-2xl md:mt-10 md:text-3xl">
             Información del evento en confirmación
