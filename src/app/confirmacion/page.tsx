@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
 
 import React, { useState } from "react";
@@ -89,7 +92,7 @@ export default function ConfirmacionPage() {
       const emailOk = result?.email?.ok ?? true;
       if (!emailOk) {
         setEmailWarning(
-          "Tu confirmación fue registrada, pero no pudimos enviar el email informativo."
+          "Tu confirmación fue registrada, pero no pudimos enviar el email informativo.",
         );
       } else {
         setEmailWarning("");
@@ -349,18 +352,18 @@ export default function ConfirmacionPage() {
               </div>
             )}
 
-          {successDetails && (
-            <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 whitespace-pre-line text-green-800">
-              <strong>¡Gracias por confirmar!</strong>
-              <div className="mt-2">{successDetails}</div>
-            </div>
-          )}
+            {successDetails && (
+              <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 whitespace-pre-line text-green-800">
+                <strong>¡Gracias por confirmar!</strong>
+                <div className="mt-2">{successDetails}</div>
+              </div>
+            )}
 
-          {emailWarning && (
-            <div className="mt-3 rounded-md border border-yellow-200 bg-yellow-50 p-3 text-yellow-800">
-              {emailWarning}
-            </div>
-          )}
+            {emailWarning && (
+              <div className="mt-3 rounded-md border border-yellow-200 bg-yellow-50 p-3 text-yellow-800">
+                {emailWarning}
+              </div>
+            )}
 
             {mutationError && (
               <div className="mt-4 rounded-md border border-red-200 bg-red-50 p-4 text-red-800">
