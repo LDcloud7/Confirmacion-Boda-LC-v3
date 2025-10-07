@@ -376,40 +376,13 @@ export default function ConfirmacionPage() {
             className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-5"
             id="eventInfo"
           >
-            <h3 className="mb-3 text-lg font-semibold text-gray-900">
-              Información del evento
-            </h3>
-            <p className="text-gray-800">
-              <strong>Lugar:</strong> <span>{EVENT.location}</span>
+            <h2 className="mb-4 text-center font-serif text-2xl font-semibold text-gray-900">
+              ¡Gracias por confirmar!
+            </h2>
+            <p className="mb-4 text-center text-gray-700">
+              Hemos enviado toda la información del evento a tu correo
+              electrónico.
             </p>
-            <p className="text-gray-800">
-              <strong>Fecha:</strong> <span>{EVENT.date}</span>
-            </p>
-            <p className="text-gray-800">
-              <strong>Hora:</strong> <span>{EVENT.time}</span>
-            </p>
-            <p className="text-gray-800">
-              <strong>Dirección:</strong> <span>{EVENT.address}</span>
-            </p>
-            <p className="mt-2 text-gray-800">
-              <strong>Ubicación:</strong>
-              <br />
-              <a
-                href={EVENT.mapUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="text-rose-700 underline"
-              >
-                Abrir en Google Maps
-              </a>
-            </p>
-            <p className="mt-2 text-gray-800">
-              <strong>Código de vestimenta:</strong>{" "}
-              <span>Formal - Etiqueta</span>
-            </p>
-            <div className="mt-3 text-center text-gray-700">
-              ¡Los esperamos con mucha ilusión!
-            </div>
           </div>
         )}
       </div>
