@@ -102,7 +102,7 @@ export default function Home() {
           </p>
           <div className="font-corsiva mt-5 mb-3 text-center text-xl md:text-2xl">
             <p>
-              BROU <strong>110497632-00030</strong>
+              BROU <strong>110497632-00003</strong>
             </p>
             <p>
               Titular de la cuenta: <strong>Lucas Dorner</strong>
