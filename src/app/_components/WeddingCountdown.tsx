@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import Countdown from "react-countdown";
 
 const WeddingCountdown = () => {
-  const weddingDate = new Date("2025-05-07T15:00:00"); // Example date and time
+  const weddingDate = new Date("2025-11-15T23:59:59");
 
   const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
     if (completed) {
-      return <span>The wedding has started!</span>;
+      return <span>¡La boda ha comenzado!</span>;
     } else {
       return (
-        <span>
-          {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
+        <span className="font-corsiva text-center text-3xl md:text-2xl lg:text-4xl">
+          {days} Días, {hours} Horas, {minutes} Minutos, {seconds} Segundos
         </span>
       );
     }
