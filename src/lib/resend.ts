@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Resend } from "resend";
-import { buildWeddingInfoEmailHTML } from "./emails/weddingInfoEmail";
+import {
+  buildWeddingInfoEmailHTML,
+  buildWeddingInfoEmailText,
+} from "./emails/weddingInfoEmail";
 import { env } from "../env";
 
 const resend = new Resend(env.RESEND_API_KEY);
@@ -11,10 +14,12 @@ export async function resendEmailConfirmation({
   to,
   subject,
   html,
+  text,
 }: {
   to: string;
   subject: string;
   html: string;
+  text?: string;
 }) {
   try {
     const email = await resend.emails.send({
@@ -22,6 +27,7 @@ export async function resendEmailConfirmation({
       to,
       subject,
       html,
+      text,
     });
     return email;
   } catch (error) {
@@ -38,9 +44,11 @@ export async function sendWeddingInfoEmail({
   guestName?: string;
 }) {
   const html = buildWeddingInfoEmailHTML({ guestName });
+  const text = buildWeddingInfoEmailText({ guestName });
   return resendEmailConfirmation({
     to,
     subject: "Información de la boda - Lucas & Caro",
     html,
+    text,
   });
 }
